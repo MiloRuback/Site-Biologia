@@ -159,8 +159,18 @@ h1 .wv{text-decoration:underline wavy var(--rust);text-decoration-thickness:2px;
   opacity:0;transform:translateY(8px) scale(.97);transition:opacity .45s,transform .45s;pointer-events:none;
 }
 .tag.show{opacity:1;transform:none}
-.tag b{color:var(--rust);display:block;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
-@media(max-width:560px){.tag{max-width:132px;font-size:9px;padding:6px 8px}}
+/* zonas separadas: noroeste · sudoeste · sul */
+#tag1{left:20%;top:8%}
+#tag2{left:2%;top:55%}
+#tag3{left:34%;top:74%}
+.ldg{opacity:0;transition:opacity .45s}
+.ldg.on{opacity:1}
+@media(max-width:560px){
+  .tag{max-width:132px;font-size:9px;padding:6px 8px}
+  #tag1{left:14%;top:5%}
+  #tag2{left:1%;top:46%}
+  #tag3{left:26%;top:73%}
+}
 .legend{display:flex;flex-wrap:wrap;gap:1.4rem 2.2rem;margin-top:1.4rem;
   font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
 .legend i{display:inline-block;width:26px;height:0;border-top:2px solid var(--rust);vertical-align:middle;margin-right:8px}
@@ -316,7 +326,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
   </div>
 
   <div class="wrap hero-foot">
-    <div class="who">Apresentação de — <span>Antônio Carlos · Guilherme Dantas · Gustavo Mônaco · Vitor Hugo · Milo Ruback· Lucce Bausas</span></div>
+    <div class="who">Apresentação de — <span>Antônio Carlos · Guilherme Dantas · Gustavo Mônaco · Vitor Hugo · Milo Ruback · Lucce Bausas</span></div>
     <div>Estudo de caso · Plano Bradfield · 1938–2025</div>
   </div>
 </section>
@@ -405,17 +415,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
 
             <!-- Lake Eyre -->
             <path d="M232 204 Q236 199 243 201 Q249 204 245 210 Q238 215 232.5 210 Q228 206 232 204 Z" fill="rgba(47,85,96,.35)" stroke="var(--water)" stroke-width="1"/>
-            <text x="238" y="224" font-family="IBM Plex Mono" font-size="8.5" letter-spacing="1.5" fill="var(--ink2)" text-anchor="middle">LAKE EYRE</text>
-            <text x="200" y="170" font-family="IBM Plex Mono" font-size="8.5" letter-spacing="1.8" fill="rgba(38,32,26,.45)" text-anchor="middle">BACIA INTERIOR</text>
+            <text x="222" y="210" font-family="IBM Plex Mono" font-size="8.5" letter-spacing="1.5" fill="var(--ink2)" text-anchor="end">LAKE EYRE</text>
+            <text x="195" y="160" font-family="IBM Plex Mono" font-size="8.5" letter-spacing="1.8" fill="rgba(38,32,26,.45)" text-anchor="middle">BACIA INTERIOR</text>
 
-            <!-- captação -->
+            <!-- captação (rótulo vertical na margem leste) -->
             <path d="M351 116 Q342 120 332 126" stroke="var(--water)" stroke-width="1.6"/>
             <path d="M354 130 Q344 134 336 138" stroke="var(--water)" stroke-width="1.6"/>
             <g fill="var(--water)">
               <circle cx="351" cy="116" r="3"><animate attributeName="r" values="3;4.6;3" dur="2.2s" repeatCount="indefinite"/></circle>
               <circle cx="354" cy="130" r="3"><animate attributeName="r" values="3;4.6;3" dur="2.2s" begin=".7s" repeatCount="indefinite"/></circle>
             </g>
-            <text x="344" y="103" font-family="IBM Plex Mono" font-size="8" letter-spacing="1" fill="var(--water)" text-anchor="middle">TULLY · HERBERT · BURDEKIN</text>
+            <text transform="rotate(90 372 118)" x="372" y="118" font-family="IBM Plex Mono" font-size="8" letter-spacing="1" fill="var(--water)">TULLY · HERBERT · BURDEKIN</text>
 
             <!-- canal proposto -->
             <path id="canalBase" d="M352 122 C336 124 322 128 310 134 C296 140 284 150 276 162 C268 174 260 188 252 196 C248 200 244 204 240 208"
@@ -436,11 +446,36 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
               <circle class="vap" cx="253" cy="193" r="1.9" style="--vd:1.1s"/>
               <circle class="vap" cx="244" cy="201" r="1.5" style="--vd:.6s"/>
             </g>
+
+            <!-- marcos das anotações + linhas-guia -->
+            <g id="leaders" fill="none">
+              <g id="ldg1" class="ldg">
+                <line id="ldl1" x1="311" y1="131" x2="311" y2="131" stroke="var(--rust)" stroke-width="1.2" opacity=".8"/>
+                <circle cx="311" cy="131" r="3.2" fill="var(--rust)"/>
+                <circle cx="311" cy="131" r="7.2" stroke="var(--rust)" stroke-width="1" opacity=".55">
+                  <animate attributeName="r" values="7.2;10;7.2" dur="2s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+              <g id="ldg2" class="ldg">
+                <line id="ldl2" x1="274" y1="161" x2="274" y2="161" stroke="var(--rust)" stroke-width="1.2" opacity=".8"/>
+                <circle cx="274" cy="161" r="3.2" fill="var(--rust)"/>
+                <circle cx="274" cy="161" r="7.2" stroke="var(--rust)" stroke-width="1" opacity=".55">
+                  <animate attributeName="r" values="7.2;10;7.2" dur="2s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+              <g id="ldg3" class="ldg">
+                <line id="ldl3" x1="238" y1="207" x2="238" y2="207" stroke="var(--rust)" stroke-width="1.2" opacity=".8"/>
+                <circle cx="238" cy="207" r="3.2" fill="var(--rust)"/>
+                <circle cx="238" cy="207" r="7.2" stroke="var(--rust)" stroke-width="1" opacity=".55">
+                  <animate attributeName="r" values="7.2;10;7.2" dur="2s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+            </g>
           </svg>
 
-          <div class="tag" id="tag1" style="left:66%;top:24%"><b>Marco 1 — Divisória</b>A água teria de ser bombeada ~500 m acima do nível do mar. Energia colossal, custo bilionário.</div>
-          <div class="tag" id="tag2" style="left:52%;top:32%"><b>Marco 2 — Planície</b>Evaporação de até 3,5 m/ano: o ar “bebe” o canal aberto, metro a metro.</div>
-          <div class="tag" id="tag3" style="left:41%;top:46%"><b>Marco 3 — Lake Eyre</b>16 m abaixo do nível do mar, recebendo… quase nada.</div>
+          <div class="tag" id="tag1"><b>Marco 1 — Divisória</b>A água teria de ser bombeada ~500 m acima do nível do mar. Energia colossal, custo bilionário.</div>
+          <div class="tag" id="tag2"><b>Marco 2 — Planície</b>Evaporação de até 3,5 m/ano: o ar “bebe” o canal aberto, metro a metro.</div>
+          <div class="tag" id="tag3"><b>Marco 3 — Lake Eyre</b>16 m abaixo do nível do mar, recebendo… quase nada.</div>
         </div>
 
         <div class="legend">
@@ -681,6 +716,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
   var result = document.getElementById("result");
   var mapbox = document.getElementById("mapbox");
   var tags   = [document.getElementById("tag1"), document.getElementById("tag2"), document.getElementById("tag3")];
+  var ldgs   = [document.getElementById("ldg1"), document.getElementById("ldg2"), document.getElementById("ldg3")];
+  var lines  = [document.getElementById("ldl1"), document.getElementById("ldl2"), document.getElementById("ldl3")];
+  var MARKS  = [[311,131],[274,161],[238,207]]; /* divisória · planície · Lake Eyre */
+  var showTimers = [null, null, null];
   var DUR = 6500;
 
   var L = flow.getTotalLength();
@@ -696,8 +735,36 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
     volBar.classList.toggle("low", low);
   }
 
+  /* desenha a linha-guia: do marco até a borda da caixa mais próxima dele */
+  function drawLeader(i){
+    var mb = mapbox.getBoundingClientRect();
+    var t  = tags[i].getBoundingClientRect();
+    var ux = 440 / mb.width, uy = 400 / mb.height;
+    var mpx = mb.left + MARKS[i][0] / ux;
+    var mpy = mb.top  + MARKS[i][1] / uy;
+    var cx = Math.max(t.left, Math.min(mpx, t.right));
+    var cy = Math.max(t.top,  Math.min(mpy, t.bottom));
+    lines[i].setAttribute("x1", MARKS[i][0]);
+    lines[i].setAttribute("y1", MARKS[i][1]);
+    lines[i].setAttribute("x2", (cx - mb.left) * ux);
+    lines[i].setAttribute("y2", (cy - mb.top)  * uy);
+  }
+
+  /* mostra caixa + ponto do marco + linha-guia */
+  function showMark(i, instant){
+    if(tags[i].classList.contains("show")) return;
+    tags[i].classList.add("show");
+    if(instant){ drawLeader(i); ldgs[i].classList.add("on"); return; }
+    showTimers[i] = setTimeout(function(){
+      drawLeader(i); ldgs[i].classList.add("on");
+    }, 470); /* espera a caixa assentar para medir a posição final */
+  }
+
   function reset(){
+    showTimers.forEach(clearTimeout);
+    showTimers = [null, null, null];
     tags.forEach(function(t){ t.classList.remove("show"); });
+    ldgs.forEach(function(g){ g.classList.remove("on"); });
     result.classList.remove("show");
     resto.classList.remove("show");
     vaps.classList.remove("on");
@@ -721,7 +788,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
   function run(){
     if(running) return;
     reset(); running = true; simBtn.disabled = true;
-    if(reduce){ finish(); return; }
+    if(reduce){ showMark(0,true); showMark(1,true); showMark(2,true); finish(); return; }
 
     vaps.classList.add("on");
     var t0 = null;
@@ -731,13 +798,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
       flow.style.transition = "none";
       flow.style.strokeDashoffset = C - (C + L) * t;          /* frente avança, cauda evapora */
       setVol(Math.max(3, Math.round(100 - 97 * Math.pow(t, 1.35))));
-      if(t > 0.20) tags[0].classList.add("show");
-      if(t > 0.50) tags[1].classList.add("show");
-      if(t > 0.86) tags[2].classList.add("show");
+      if(t > 0.20) showMark(0);
+      if(t > 0.50) showMark(1);
+      if(t > 0.86) showMark(2);
       if(t < 1){ raf = requestAnimationFrame(frame); } else { finish(); }
     }
     raf = requestAnimationFrame(frame);
   }
+
+  /* se a janela mudar de tamanho, as linhas-guia se redesenham */
+  var rto;
+  addEventListener("resize", function(){
+    clearTimeout(rto);
+    rto = setTimeout(function(){
+      ldgs.forEach(function(g, i){ if(g.classList.contains("on")) drawLeader(i); });
+    }, 160);
+  });
 
   simBtn.addEventListener("click", run);
   again.addEventListener("click", run);
